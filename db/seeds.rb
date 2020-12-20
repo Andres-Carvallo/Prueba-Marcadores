@@ -10,12 +10,12 @@
     Bookmark.create(name: Faker::Game.platform)
 end
 
-20.times do
+6.times do
     Category.create(name: Faker::Game.genre, privacy: false, bookmark_id: rand(1..3))
 end
 
 30.times do
-    SubCategory.create(name: Faker::Game.title, privacy: false, category_id: rand(1..3))
+    SubCategory.create(name: Faker::Game.title, privacy: false, category_id: rand(1..10))
 end
 
 
