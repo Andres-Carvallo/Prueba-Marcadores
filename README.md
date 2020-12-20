@@ -1,3 +1,4 @@
 # README
 
 API OUTPUT = http://localhost:3000/apis/news
+GRAFICO DE REALCIONES EN ROOT
