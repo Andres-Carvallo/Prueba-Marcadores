@@ -46,8 +46,20 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
+    
     respond_to do |format|
-      if @category.update(category_params)
+      if @category.update(category_params) && @category.privacy == true
+        @sub_categories = SubCategory.where(category_id: @category.id)
+        @sub_categories.each do |sub_category|
+          sub_category.update(privacy: true)
+        end
+        format.html { redirect_to new_category_path, notice: 'Category was successfully updated.' }
+        format.json { render :show, status: :ok, location: @category }
+      elsif @category.update(category_params) && @category.privacy == false
+        @sub_categories = SubCategory.where(category_id: @category.id)
+        @sub_categories.each do |sub_category|
+          sub_category.update(privacy: false)
+        end
         format.html { redirect_to new_category_path, notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @category }
       else

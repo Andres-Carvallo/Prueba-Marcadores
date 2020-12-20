@@ -13,7 +13,7 @@
     
   <div class="field">
     <%= form.label :bookmar_reference_ID %>
-    <%= form.number_field :bookmark_id %>
+    <%= form.text_field :bookmark_id %>
   </div>
 
   <div class="field">
@@ -27,6 +27,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit%>
+    <%= form.submit data: { confirm: 'Changes in pravicy will affecto your Sub categories!' }%>
   </div>
 <% end %>

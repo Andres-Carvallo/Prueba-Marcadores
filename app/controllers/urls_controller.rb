@@ -25,6 +25,18 @@ class UrlsController < ApplicationController
   # POST /urls.json
   def create
     @url = Url.new(url_params)
+    byebug
+    if @url.urlable_type == "Category"
+      
+      @parent_id = Category.where(name: @url.urlable_id)
+      @url.urlable_id = @parent_id.id
+    elsif @url.urlable_type == "SubCategory"
+      @parent_id = Category.where(name: @url.urlable_id)
+      @url.urlable_id = @parent_id.id
+    else
+      @url
+    end
+
 
     respond_to do |format|
       if @url.save

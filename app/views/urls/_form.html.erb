@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :Catergory_or_Subcategory %>
-    <%= form.text_field :urlable_type %>
+    <%= form.select :urlable_type, ["Category", "SubCategory"] %>
   </div>
 
   <div class="field">
     <%= form.label :Category_or_Subcategory_ID %>
-    <%= form.text_field :urlable_id %>
+    <%= form.number_field :urlable_id %>
   </div>
 
   <div class="actions">
