@@ -1,0 +1,32 @@
+<%= form_with(model: url) do |form| %>
+  <% if url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(url.errors.count, "error") %> prohibited this url from being saved:</h2>
+
+      <ul>
+      <% url.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :url_name %>
+    <%= form.text_field :url_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Catergory_or_Subcategory %>
+    <%= form.text_field :urlable_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Category_or_Subcategory_ID %>
+    <%= form.text_field :urlable_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit data: { confirm: 'Are you sure you want to add an URL?' }%>
+  </div>
+<% end %>

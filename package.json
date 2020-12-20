@@ -1,0 +1,8 @@
+{
+  "name": "Marcadores",
+  "private": true,
+  "dependencies": {
+    "highcharts": "^8.2.2",
+    "jquery": "^3.5.1"
+  }
+}
